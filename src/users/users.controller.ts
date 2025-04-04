@@ -1,14 +1,8 @@
 import {
-    BadRequestException,
     Body,
     Controller,
-    Delete,
     Get,
-    HttpCode,
-    Param,
     Patch,
-    Post,
-    Query,
     Request,
     Res,
     UseGuards,
@@ -22,25 +16,20 @@ import {
     ApiOperation,
     ApiBearerAuth,
     ApiResponse,
-    ApiQuery,
     ApiConsumes,
     ApiBody,
 } from '@nestjs/swagger';
-import { Roles } from '../auth/decorators/roles.decorator';
-import { Role } from '../auth/enums/roles.enum';
 import { ATAuthGuard } from '../auth/guards/at-auth.guard';
-import { RolesGuard } from '../auth/guards/roles.guard';
 import { ProfileDto } from '../auth/dtos/cred.dto';
-import { CreateEmployeeDto } from './dtos/create-user.dto';
-import { UpdateEmployeeDto, UpdateProfileDto } from './dtos/update-user.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
 import type { Multer } from 'multer';
+import { UpdateProfileDto } from './dtos/update-user.dto';
 @Controller('users')
 export class UsersController {
     constructor(private readonly usersService: UsersService) {}
 
     @ApiOperation({
-        summary: 'Get profile with credentials [GUEST, EMPLOYEE, MANAGER]',
+        summary: 'Get profile with credentials [USER]',
     })
     @ApiBearerAuth('access-token')
     @Get('user')

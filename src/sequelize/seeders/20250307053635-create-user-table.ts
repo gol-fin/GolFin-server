@@ -16,12 +16,12 @@ export = {
             process.env.MANAGER_PASSWORD,
             saltRounds,
         );
-        const employeePassword = await bcrypt.hash('employee123', saltRounds);
-        const guestPassword = await bcrypt.hash('guest123', saltRounds);
+        const employeePassword = await bcrypt.hash('user01', saltRounds);
+        const guestPassword = await bcrypt.hash('user02', saltRounds);
 
         const managerEmail = process.env.MANAGER_EMAIL;
-        const employeeEmail = 'employee@example.com';
-        const guestEmail = 'guest@example.com';
+        const employeeEmail = 'user01@example.com';
+        const guestEmail = 'user02@example.com';
 
         // Check if the manager already exists
         const [existingUser] = await queryInterface.sequelize.query(
@@ -43,7 +43,6 @@ export = {
                     email: managerEmail,
                     password: managerPassword,
                     phone: '1234567890',
-                    address: 'Ho Chi Minh City, Vietnam',
                     birthdate: new Date('1990-01-01'),
                     role: Role.ADMIN,
                     balance: 2000000,
