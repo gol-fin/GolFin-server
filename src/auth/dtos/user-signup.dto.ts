@@ -29,11 +29,6 @@ export class UserSignUpDto {
     phone: string;
 
     @ApiProperty()
-    @IsNotEmpty({ message: 'Address cannot be empty' })
-    @IsString()
-    address: string;
-
-    @ApiProperty()
     @IsNotEmpty({ message: 'Birthdate cannot be empty' })
     @IsDateString()
     birthdate: string;
