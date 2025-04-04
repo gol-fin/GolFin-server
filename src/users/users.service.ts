@@ -5,9 +5,7 @@ import {
 } from '@nestjs/common';
 import { UsersRepository } from './users.repository';
 import { User } from './entities/user.model';
-import { CreateEmployeeDto } from './dtos/create-user.dto';
-import { Role } from '../auth/enums/roles.enum';
-import { UpdateEmployeeDto, UpdateProfileDto } from './dtos/update-user.dto';
+import { UpdateProfileDto } from './dtos/update-user.dto';
 import type { Multer } from 'multer';
 import { UploadService } from '../uploader/upload.service';
 @Injectable()
